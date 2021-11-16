@@ -1,0 +1,26 @@
+{
+	"name": "fcc-basic-node-and-express",
+	"author": "Irwing Naranjo <khalisser@gmail.com>",
+	"description": "FCC basic Node and Express",
+	"keywords": [
+		"freecodecamp",
+		"package",
+		"nodejs"
+	],
+	"license": "MIT",
+	"version": "1.0.0",
+	"dependencies": {
+		"express": "^4.14.0",
+		"body-parser": "^1.15.2",
+		"cookie-parser": "^1.4.3",
+		"fcc-express-bground": "https://github.com/freeCodeCamp/fcc-express-bground-pkg.git"
+	},
+	"main": "server.js",
+	"scripts": {
+		"start": "node server.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/irwing/fcc-basic-node-and-express.git"
+	}
+}
