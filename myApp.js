@@ -1,8 +1,13 @@
 var express = require('express');
 var app = express();
 
+const BASEPATH = __dirname;
+
 app.get('/', (req, res) => {
-    res.send(`Hello Express`);
+
+    const file = `${BASEPATH}/views/index.html`;
+
+    res.sendFile(file);
 });
 
 module.exports = app;
