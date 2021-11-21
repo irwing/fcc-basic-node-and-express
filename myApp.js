@@ -4,6 +4,9 @@ var app = express();
 
 const BASEPATH = __dirname;
 
+// return time now
+const getNow = () => new Date().toString();
+
 // load static resources
 app.use('/public', express.static(`${BASEPATH}/public`));
 
@@ -23,15 +26,19 @@ app.get('/', (req, res) => {
 });
 
 // json route
-app.get("/json", function (req, res) {
-  if (process.env.MESSAGE_STYLE === 'uppercase') {
-    res.json({
-      "message": "HELLO JSON"
-    });
-  }
-    res.json({
-      "message": "Hello json"
-    });  
+app.get("/json", (req, res) => {
+  (process.env.MESSAGE_STYLE === 'uppercase')
+    ? res.json({ "message": "HELLO JSON" })
+    : res.json({ "message": "Hello json" });
 });
+
+// time route
+app.get("/now", 
+  (req, res, next) => {
+    req.time = getNow();
+    next();
+  },
+  (req, res) => res.json({ "time": req.time })
+);
 
 module.exports = app;
