@@ -56,10 +56,17 @@ app.get("/:word/echo", (req, res) => {
 });
 
 // names route
-app.get("/name", (req, res) => {
-  const firstName = req.query.first || "";
-  const lastName = req.query.last || "";
-  res.json({ "name": `${firstName} ${lastName}` })
-});
+app
+  .route("/name")
+  .get((req, res) => {
+    const firstName = req.query.first || "";
+    const lastName = req.query.last || "";
+    res.json({ "name": `${firstName} ${lastName}` });
+  })
+  .post((req, res) => {
+    const firstName = req.body.first || "";
+    const lastName = req.body.last || "";
+    res.json({ "name": `${firstName} ${lastName}` });
+  });
 
 module.exports = app;
